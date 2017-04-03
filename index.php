@@ -5,7 +5,8 @@
         <title>Online Attendance</title>
     </head>
     
-    <style>
+    <!--style for whole html file. Make another CSS file for this-->
+    <style>                                
         body{
             background: black;
         }
@@ -63,13 +64,13 @@
         input[type=submit]:hover,button:hover{
             opacity: 0.5;
         }
-    </style>    
+    </style>                <!---------------style end-------------------->   
     <body>
         <img src="res/frontPageLogo2.png" alt=" Attendance Matters " style="margin-left: 5%;margin-top: 10%"></img>
         <br/>
         <form action="https://www.google.com">
             <b>Username</b><input type="text" name="username" placeholder="Enter Username" required="true"></input>
-            <b>Password</b><input type="password" name="password" placeholder="Enter password" required="true"></input>
+            <b>Password</b><input type="password" name="password" placeholder="Enter Password" required="true"></input>
             <input type="submit" value="Log In"></input>
         </form>
         <a href="https://www.facebook.com"><button>I Am A Student !</button></a>     
