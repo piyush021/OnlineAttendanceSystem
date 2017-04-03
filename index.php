@@ -81,7 +81,7 @@
         <div style="color: red;position: absolute;top: 120px;left: 910px;font: 15px;font-family: cursive"><?php echo $invalid;?></div>
         <form action="index.php" method="POST">
             <b>Username</b><input type="text" name="username" placeholder="Enter Username" required="true"></input>
-            <b>Password</b><input type="password" name="password" placeholder="Enter password" required="true"></input>
+            <b>Password</b><input type="password" name="password" placeholder="Enter Password" required="true"></input>
             <input type="submit" value="Log In"></input>
         </form>
         <a href="https://www.facebook.com"><button>I Am A Student !</button></a>     
