@@ -65,7 +65,7 @@
         }
     </style>    
     <body>
-        <img src="src/frontPageLogo2.png" alt=" Attendance Matters " style="margin-left: 5%;margin-top: 10%"></img>
+        <img src="res/frontPageLogo2.png" alt=" Attendance Matters " style="margin-left: 5%;margin-top: 10%"></img>
         <br/>
         <form action="https://www.google.com">
             <b>Username</b><input type="text" name="username" placeholder="Enter Username" required="true"></input>
