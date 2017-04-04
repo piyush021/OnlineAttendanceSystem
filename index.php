@@ -1,14 +1,38 @@
 <!DOCTYPE html>
+
+
 <?php
+
     $resultFromValidation="";
-    if(isset($_GET['r'])){
-        $resultFromValidation="Invalid Username Or Password !!!";
+    $conn=new mysqli('localhost', 'root', '', 'online_attendance_system') or die("server Is Down");
+    
+    //validating login details here
+    if(isset($_POST['username']) && isset($_POST['password']) && !empty($_POST['username']) && !empty($_POST['password'])){
+        
+        $id=$conn->real_escape_string($_POST['username']);
+        $password=$conn->real_escape_string($_POST['password']);
+        $query="select `first_name`, `last_name` from `login_details` where id='$id' and password='$password'";
+        
+        if($result=$conn->query($query)){ 
+            if($result->num_rows===1){
+                header("Location: https://www.google.com");
+            }else{
+                $resultFromValidation="Invalid Username Or Password !!!";
+            }
+        }else{
+            //query did not run
+            die('Server is Down');
+        }
+        
     }
+    
 ?>
+
+
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Online Attendance</title>
+        <title>Online Attendance System</title>
     </head>
     <style>
         body{
@@ -16,9 +40,8 @@
         }
         form{
             position: absolute;
-            top: 146px;
+            top: 145px;
             left: 800px;
-            border: 3px solid black;
             padding: 30px 30px;
             width: 30%;
         }
@@ -27,12 +50,11 @@
             margin: 10px 0px;
             width: 100%;
             font-size: 20px;
-            font-family: cursive;
             background: black;
             color: white;
             display: inline-block;
             border: 0px;
-            border-bottom: 1px solid whitesmoke;
+            border-bottom: 1px solid darkgray;
             box-sizing: border-box;
         }
         
@@ -48,22 +70,20 @@
             border-radius: 5px;
             background-color: gray;
             font-size: 15px;
-            font-family: cursive;
             color: black;
             cursor: pointer;
         }
         button{
             padding: 10px 10px;
             margin: 30px 35px;
-            border: 1px solid black;
+            border: 3px solid red;
             border-radius: 5px;
             background-color: lightgray;
             font-size: 15px;
-            font-family: cursive;
             color: black;
             cursor: pointer;
             position: absolute;
-            top: 317px;
+            top: 300px;
             left: 985px;
             width: 200px;
         }
@@ -71,15 +91,17 @@
             opacity: 0.5;
         }
     </style>    
+    
     <body>
         <img src="res/frontPageLogo2.png" alt=" Attendance Matters " style="margin-left: 5%;margin-top: 10%"></img>
         <br/>
         <div style="color: red;position: absolute;top: 150px;left: 915px;"><?php echo $resultFromValidation;?></div>
-        <form action="validate.php" method="POST" autocomplete="off">
+        <form action="index.php" method="POST" autocomplete="off">
             <input type="text" name="username" placeholder="Enter Username" required="true"></input>
             <input type="password" name="password" placeholder="Enter Password" required="true"></input>
-            <input type="submit" value="Log In"></input>
+            <input type="submit" value="LOG IN"></input>
         </form>
-        <a href="https://www.google.com"><button>I Am A Student !</button></a>     
+        <a href="https://www.google.com"><button>I AM A STUDENT !</button></a>     
     </body>
+    
 </html>
