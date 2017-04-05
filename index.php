@@ -15,7 +15,7 @@
         
         if($result=$conn->query($query)){ 
             if($result->num_rows===1){
-                header("Location: https://www.google.com");
+                header("Location: homepageTeacher.php");
             }else{
                 $resultFromValidation="Invalid Username Or Password !!!";
             }
@@ -30,11 +30,14 @@
 
 
 <html>
+    
     <head>
         <meta charset="UTF-8">
         <title>Online Attendance System</title>
     </head>
+    
     <style>
+        
         body{
             background: black;
         }
@@ -70,6 +73,7 @@
             border-radius: 5px;
             background-color: gray;
             font-size: 15px;
+            font-weight: bold;
             color: black;
             cursor: pointer;
         }
@@ -90,6 +94,7 @@
         input[type=submit]:hover,button:hover{
             opacity: 0.5;
         }
+        
     </style>    
     
     <body>
@@ -101,7 +106,7 @@
             <input type="password" name="password" placeholder="Enter Password" required="true"></input>
             <input type="submit" value="LOG IN"></input>
         </form>
-        <a href="https://www.google.com"><button>I AM A STUDENT !</button></a>     
+        <a href="homepageStudents.php"><button><b>I AM A STUDENT !</b></button></a>     
     </body>
     
 </html>
