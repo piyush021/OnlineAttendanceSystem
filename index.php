@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 
-
 <?php
-
+    //validating login details here
     $resultFromValidation="";
     $conn=new mysqli('localhost', 'root', '', 'online_attendance_system') or die("server Is Down");
     
-    //validating login details here
     if(isset($_POST['username']) && isset($_POST['password']) && !empty($_POST['username']) && !empty($_POST['password'])){
         
         $id=$conn->real_escape_string($_POST['username']);
@@ -33,26 +31,36 @@
     
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Online Attendance System</title>
     </head>
     
     <style>
-        
+        /*for desktop browsers*/
         body{
             background: black;
         }
+        img{
+            width: 50%;
+            float: left;
+            margin: 5%;
+            margin-top: 10%;
+        }
         form{
-            position: absolute;
-            top: 145px;
-            left: 800px;
-            padding: 30px 30px;
             width: 30%;
+            float: right;
+            margin: 5%;
+            padding-top : 2%;
+            margin-top: 10%;
+            font-size: 0;
         }
         input[type=text],input[type=password]{
-            padding: 10px 10px;
-            margin: 10px 0px;
             width: 100%;
-            font-size: 20px;
+            /* 1wv=1% of screen width 
+               normal % are not woking here */
+            margin: 0.5vw;
+            padding: 1vw;
+            font-size: 1.5vw;
             background: black;
             color: white;
             display: inline-block;
@@ -67,29 +75,27 @@
         
         input[type=submit]{
             width: 30%;
-            padding: 10px 10px;
-            margin: 30px 20px;
-            border: 1px solid black;
-            border-radius: 5px;
+            padding: 1vw;
+            margin: 3vw;
+            margin-top: 2vw;
+            border: 0.5vw solid black;
+            border-radius: 1vw;
             background-color: gray;
-            font-size: 15px;
+            font-size: 1vw;
             font-weight: bold;
             color: black;
             cursor: pointer;
         }
-        button{
-            padding: 10px 10px;
-            margin: 30px 35px;
-            border: 3px solid red;
-            border-radius: 5px;
-            background-color: lightgray;
-            font-size: 15px;
+        input[type=button]{
+            width: 40%;
+            padding: 1vw;
+            border: 0.5vw solid black;
+            border-radius: 1vw;
+            background-color: darkseagreen;
+            font-size: 1vw;
+            font-weight: bold;
             color: black;
             cursor: pointer;
-            position: absolute;
-            top: 300px;
-            left: 985px;
-            width: 200px;
         }
         input[type=submit]:hover,button:hover{
             opacity: 0.5;
@@ -98,15 +104,14 @@
     </style>    
     
     <body>
-        <img src="res/frontPageLogo2.png" alt=" Attendance Matters " style="margin-left: 5%;margin-top: 10%"></img>
-        <br/>
-        <div style="color: red;position: absolute;top: 150px;left: 915px;"><?php echo $resultFromValidation;?></div>
+        <img src="res/frontPageLogo.png" alt=" Attendance Matters " ></img>
         <form action="index.php" method="POST" autocomplete="off">
+            <div style="color: red;margin-left: 25%;font-size: 1vw;"><?php echo $resultFromValidation;?></div>
             <input type="text" name="username" placeholder="Enter Username" required="true"></input>
             <input type="password" name="password" placeholder="Enter Password" required="true"></input>
             <input type="submit" value="LOG IN"></input>
+            <input type="button" onclick="location.href='homepageStudent.php'" value="I AM A STUDENT !"></input>
         </form>
-        <a href="homepageStudents.php"><button><b>I AM A STUDENT !</b></button></a>     
     </body>
     
 </html>
