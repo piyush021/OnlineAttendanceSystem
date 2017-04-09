@@ -98,7 +98,12 @@ if (isset($_POST['username']) && isset($_POST['password']) && !empty($_POST['use
         input[type=submit]:hover,button:hover{
             opacity: 0.5;
         }
-
+        
+        .result{
+            color: red;
+            margin-left: 25%;
+            font-size: 1vw;
+        }
 
         /*for mobiles*/
         @media only screen and (max-width: 768px){
@@ -163,6 +168,14 @@ if (isset($_POST['username']) && isset($_POST['password']) && !empty($_POST['use
             input[type=submit]:hover,button:hover{
                 opacity: 0.5;
             }
+            
+            
+            .result{
+                color: red;
+                margin-left: 15%;
+                font-size: 5vw;
+            }
+
 
         }
 
@@ -171,7 +184,7 @@ if (isset($_POST['username']) && isset($_POST['password']) && !empty($_POST['use
     <body>
         <img src="res/frontPageLogo.png" alt=" Attendance Matters " ></img>
         <form action="index.php" method="POST" autocomplete="off">
-            <div style="color: red;margin-left: 25%;font-size: 1vw;"><?php echo $resultFromValidation; ?></div>
+            <div class="result" ><?php echo $resultFromValidation; ?></div>
             <input type="text" name="username" placeholder="Enter Username" required="true"></input>
             <input type="password" name="password" placeholder="Enter Password" required="true"></input>
             <input type="submit" value="LOG IN"></input>
