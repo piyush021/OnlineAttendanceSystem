@@ -13,7 +13,8 @@ if (isset($_POST['username']) && isset($_POST['password']) && !empty($_POST['use
 
     if ($result = $conn->query($query)) {
         if ($result->num_rows === 1) {
-            header("Location: homepageTeacher.php");
+            header("Location: teacher/index.php");
+            exit();
         } else {
             $resultFromValidation = "Invalid Username Or Password !!!";
         }
@@ -49,7 +50,7 @@ if (isset($_POST['username']) && isset($_POST['password']) && !empty($_POST['use
             float: right;
             margin: 5%;
             padding-top : 2%;
-            margin-top: 10%;
+            margin-top: 12%;
             font-size: 0;
         }
         input[type=text],input[type=password]{
@@ -67,7 +68,7 @@ if (isset($_POST['username']) && isset($_POST['password']) && !empty($_POST['use
             box-sizing: border-box;
         }
 
-        input[type=text],input[type=password]:focus{
+        input[type=text]:focus,input[type=password]:focus,input[type=submit]:focus,input[type=button]:focus{
             outline: none;
         }
 
@@ -95,7 +96,7 @@ if (isset($_POST['username']) && isset($_POST['password']) && !empty($_POST['use
             color: black;
             cursor: pointer;
         }
-        input[type=submit]:hover,button:hover{
+        input[type=submit]:hover,input[type=button]:hover{
             opacity: 0.5;
         }
         
@@ -138,10 +139,10 @@ if (isset($_POST['username']) && isset($_POST['password']) && !empty($_POST['use
                 box-sizing: border-box;
             }
 
-            input[type=text],input[type=password]:focus{
+         
+            input[type=text]:focus,input[type=password]:focus,input[type=submit]:focus,input[type=button]:focus{
                 outline: none;
             }
-
             input[type=submit]{
                 width: 30%;
                 padding: 2vw;
@@ -165,7 +166,7 @@ if (isset($_POST['username']) && isset($_POST['password']) && !empty($_POST['use
                 color: black;
                 cursor: pointer;
             }
-            input[type=submit]:hover,button:hover{
+            input[type=submit]:hover,input[type=button]:hover{
                 opacity: 0.5;
             }
             
@@ -188,7 +189,7 @@ if (isset($_POST['username']) && isset($_POST['password']) && !empty($_POST['use
             <input type="text" name="username" placeholder="Enter Username" required="true"></input>
             <input type="password" name="password" placeholder="Enter Password" required="true"></input>
             <input type="submit" value="LOG IN"></input>
-            <input type="button" onclick="location.href = 'homepageStudent.php'" value="I AM A STUDENT !"></input>
+            <input type="button" onclick="location.href = 'student/index.php'" value="I AM A STUDENT !"></input>
         </form>
     </body>
 
