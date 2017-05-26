@@ -7,9 +7,11 @@
     $password="";
     $database="online_attendance_system";
     //connect to database
-    $connection = new mysqli($host,$username,$password,$database);
-    if($connection==FALSE){
-        die("Unable To Connect To Server.");
+    $connection = @new mysqli($host,$username,$password,$database);
+    //check if error occurred
+    //connect_errno will be 0 if no ecrror occurred
+    if($connection->connect_errno){
+        die("Server is down.");
     }
 
 ?>
