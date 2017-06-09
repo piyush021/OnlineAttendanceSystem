@@ -34,6 +34,7 @@ if (isset($_POST['username']) && isset($_POST['password']) && !empty($_POST['use
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online Attendance System</title>
+    <link rel="shortcut icon" href="res/title_logo.png" type="image/png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -91,44 +92,31 @@ if (isset($_POST['username']) && isset($_POST['password']) && !empty($_POST['use
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#">
-                    <div style="font-family : 'Century Gothic'; font-weight: bold;">Online Attendance System</div>
+                    <img src="res/title_logo.png" class="img-circle" style="display: inline-block;width: 30px;" >
+                    <div style="font-family : 'Century Gothic'; font-weight: bold; display: inline-block">Online Attendance System</div>
                 </a>
             </div>
             <div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#" data-toggle="modal" data-target="#redirectionModal"><span
-                                        class="glyphicon glyphicon-education"></span> Visit Official Sites</a></li>
+                        <li><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span
+                                    class="glyphicon glyphicon-education"></span> Visit Official Sites
+                                    <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="http://www.du.ac.in">Delhi University</a></li>
+                                <li><a href="http://www.cvs.edu.in">College Of Vocational Studies</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Admin</a></li>
+                        <li><a href="#" ><span class="glyphicon glyphicon-earphone"></span> Contact</a></li>
                         <li><a href="#" data-toggle="modal" data-target="#aboutUsModal"><span
-                                        class="glyphicon glyphicon-info-sign"></span> About Us</a></li>
+                                        class="glyphicon glyphicon-info-sign"></span> About Us</a></li>                
                     </ul>
                 </div>
             </div>
         </div>
     </nav>
-
-    <div class="modal fade" id="redirectionModal" role="dialog">
-        <div class="modal-dialog modal-sm">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">
-                        <div style="text-align: center;">Redirect To ?</div>
-                    </h4>
-                </div>
-                <div class="modal-body">
-                    <div style="text-align: center;">
-                        <a href="http://www.cvs.edu.in">College Of Vocational Studies</a>
-                        <br><b>OR</b><br>
-                        <a href="http://www.du.ac.in/">Delhi University</a>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
+        
     <div class="modal fade" id="aboutUsModal" role="dialog">
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
